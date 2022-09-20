@@ -100,7 +100,12 @@ public class CallbackOnEveryMessage implements Plugin, PacketInterceptor {
             JID from = packet.getFrom();
             String body = sendBody ? msg.getBody() : null;
 
-            if (body == null || delay != null || (msg.getType() != Message.Type.chat && msg.getType() != Message.Type.groupchat)) {
+            if (
+            body == null ||
+            delay != null ||
+            (msg.getType() != Message.Type.chat && msg.getType() != Message.Type.groupchat) ||
+            from.toBareJID().equals(to.toBareJID())
+            ) {
                 return;
             }
 
@@ -113,6 +118,7 @@ public class CallbackOnEveryMessage implements Plugin, PacketInterceptor {
             if (debug) {
                 Log.debug("sending request to url='{}'", target);
             }
+
 
             MessageData data = new MessageData(token, from.toBareJID(), to.toBareJID(), body);
 
