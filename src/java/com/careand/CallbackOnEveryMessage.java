@@ -104,13 +104,13 @@ public class CallbackOnEveryMessage implements Plugin, PacketInterceptor {
             body == null ||
             delay != null ||
             (msg.getType() != Message.Type.chat && msg.getType() != Message.Type.groupchat) ||
-            from.toBareJID().equals(to.toBareJID())
+            !from.toBareJID().equals(to.toBareJID())
             ) {
                 return;
             }
 
             if (debug) {
-                Log.debug("intercepted message from {} to {}", new Object[]{packet.getFrom().toBareJID(), to.toBareJID()});
+                Log.debug("intercepted message from {} to {}", new Object[]{packet.getFrom().toString(), to.toString()});
             }
 
             WebTarget target = client.target(url);
@@ -120,7 +120,7 @@ public class CallbackOnEveryMessage implements Plugin, PacketInterceptor {
             }
 
 
-            MessageData data = new MessageData(token, from.toBareJID(), to.toBareJID(), body);
+            MessageData data = new MessageData(token, from.toString(), to.toString(), body);
 
             Future<Response> responseFuture = target
                     .request()
