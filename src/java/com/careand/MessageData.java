@@ -1,4 +1,4 @@
-package com.fotsum;
+package com.careand;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

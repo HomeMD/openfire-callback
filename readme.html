@@ -53,14 +53,13 @@
 <body>
 
 <h1>
-    Callback on offline Plugin Readme
+    Callback on every message Plugin Readme
 </h1>
 
 <h2>Overview</h2>
 
 <p>
-    Plugin intercepts messages and checks if recipient is available. If not, plugin sends async POST request with JSON
-    body to defined url.
+    Plugin intercepts messages and sends async POST request with JSON body to defined url.
 </p>
 
 <p>
@@ -83,10 +82,10 @@
 
     There are few properties that can be defined to change plugin behaviour:
     <ul>
-        <li><code>plugin.callback_on_offline.debug</code> - enable debug logs. If something doesn't work set property to true</li>
-        <li><code>plugin.callback_on_offline.url</code> - url that will be called</li>
-        <li><code>plugin.callback_on_offline.token</code> - token to be send with request</li>
-        <li><code>plugin.callback_on_offline.send_body</code> - boolean value to determine if message's body will be send. True by default.</li>
+        <li><code>plugin.callback_on_every_message.debug</code> - enable debug logs. If something doesn't work set property to true</li>
+        <li><code>plugin.callback_on_every_message.url</code> - url that will be called</li>
+        <li><code>plugin.callback_on_every_message.token</code> - token to be send with request</li>
+        <li><code>plugin.callback_on_every_message.send_body</code> - boolean value to determine if message's body will be send. True by default.</li>
     </ul>
 
 </body>
